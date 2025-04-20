@@ -1,39 +1,24 @@
-variable "vm_name" {
-  type = string
+variable "instance_name" {
+  type        = string
+  description = "The name of the instance"
 }
 
-variable "resource_group_name" {
-  type = string
+variable "machine_type" {
+  type        = string
+  description = "The machine type for the instance"
 }
 
-variable "location" {
-  type = string
+variable "zone" {
+  type        = string
+  description = "The zone where the instance will be created"
 }
 
-variable "vm_size" {
-  type = string
+variable "image" {
+  type        = string
+  description = "The image for the boot disk"
 }
 
-variable "publisher" {
-  type = string
-}
-
-variable "offer" {
-  type = string
-}
-
-variable "sku" {
-  type = string
-}
-
-variable "version" {
-  type = string
-}
-
-variable "admin_username" {
-  type = string
-}
-
-variable "admin_password" {
-  type = string
+variable "network" {
+  type        = string
+  description = "The network for the instance"
 }
