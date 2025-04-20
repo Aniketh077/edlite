@@ -1,22 +1,16 @@
-# Terraform Module: Azure Virtual Machine
+# GCE Module
 
-This module deploys a virtual machine on Azure.
+This module creates a Google Compute Engine instance in GCP.
 
 ## Usage
 
 ```hcl
-module "virtual_machine" {
-  source = "path/to/module"
-
-  vm_name            = "my-vm"
-  resource_group_name = "my-resource-group"
-  location           = "East US"
-  vm_size            = "Standard_DS1_v2"
-  publisher          = "Canonical"
-  offer              = "UbuntuServer"
-  sku                = "16.04-LTS"
-  version            = "latest"
-  admin_username     = "admin"
-  admin_password     = "P@ssw0rd"
+module "gce_instance" {
+  source       = "path/to/module"
+  instance_name = "example-instance"
+  machine_type  = "n1-standard-1"
+  zone         = "us-central1-a"
+  image        = "debian-cloud/debian-9"
+  network      = "default"
 }
 ```
