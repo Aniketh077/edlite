@@ -1,24 +1,15 @@
-resource "azurerm_virtual_machine" "example" {
-  name                  = var.vm_name
-  resource_group_name   = var.resource_group_name
-  location              = var.location
-  vm_size               = var.vm_size
-  network_interface_ids = [azurerm_network_interface.example.id]
+resource "google_compute_instance" "example_instance" {
+  name         = var.instance_name
+  machine_type = var.machine_type
+  zone         = var.zone
 
-  storage_image_reference {
-    publisher = var.publisher
-    offer     = var.offer
-    sku       = var.sku
-    version   = var.version
+  boot_disk {
+    initialize_params {
+      image = var.image
+    }
   }
 
-  os_profile {
-    computer_name  = var.vm_name
-    admin_username = var.admin_username
-    admin_password = var.admin_password
-  }
-
-  os_profile_linux_config {
-    disable_password_authentication = false
+  network_interface {
+    network = var.network
   }
 }
