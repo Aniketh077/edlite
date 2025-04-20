@@ -2,7 +2,7 @@
 
 This module creates a Google Compute Engine instance in GCP.
 
-## Usage for terra
+## Usage for terraa
 
 ```hcl
 module "gce_instance" {
